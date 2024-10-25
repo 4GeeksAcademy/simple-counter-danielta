@@ -6,8 +6,21 @@ import ReactDOM from "react-dom/client";
 import "../styles/index.css";
 
 //import your own components
-import Home from "./component/home.jsx";
+import Display from "./component/home.jsx";
+
+
+let number = 0
+const counter = () => {
+    number++;
+    let padNumber = "00000" + number
+    let result = padNumber.slice(-6)
+    const ctrArray = Array.from(result)
+    ReactDOM.createRoot(document.getElementById('app')).render(<Display ctrArray={ctrArray}/>);
+}
+
+setInterval(counter, 1000);
+
 
 //render your react application
-ReactDOM.createRoot(document.getElementById('app')).render(<Home/>);
+
 
